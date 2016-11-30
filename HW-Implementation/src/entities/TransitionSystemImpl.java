@@ -2,10 +2,8 @@ package entities;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.LinkedHashMap;
 
 import il.ac.bgu.cs.fvm.exceptions.FVMException;
 import il.ac.bgu.cs.fvm.transitionsystem.Transition;
@@ -22,12 +20,12 @@ public class TransitionSystemImpl<STATE, ACTION, ATOMIC_PROPOSITION> implements 
 	private String _name;
 
 	public TransitionSystemImpl(){
-		_states = new LinkedHashSet<STATE>();
-		_actions = new LinkedHashSet<ACTION>();
-		_transitions = new LinkedHashSet<Transition<STATE, ACTION>>();
+		_states = new HashSet<STATE>();
+		_actions = new HashSet<ACTION>();
+		_transitions = new HashSet<Transition<STATE, ACTION>>();
 		_atomic_propositions = new HashSet<ATOMIC_PROPOSITION>();
 		_initial_states = new HashSet<STATE>();
-		_labels = new LinkedHashMap<STATE,Set<ATOMIC_PROPOSITION>>();
+		_labels = new HashMap<STATE,Set<ATOMIC_PROPOSITION>>();
 		_name = "__EMPTY__";
 	}
 
@@ -89,7 +87,7 @@ public class TransitionSystemImpl<STATE, ACTION, ATOMIC_PROPOSITION> implements 
 
 
 	public Set<ACTION> getActions() {
-		return new LinkedHashSet<ACTION>(_actions);
+		return new HashSet<ACTION>(_actions);
 	}
 
 	public void addAtomicProposition(ATOMIC_PROPOSITION p) {
@@ -143,12 +141,12 @@ public class TransitionSystemImpl<STATE, ACTION, ATOMIC_PROPOSITION> implements 
 
 
 	public Set<STATE> getStates() {
-		return new LinkedHashSet<STATE>(_states);
+		return new HashSet<STATE>(_states);
 	}
 
 
 	public Set<Transition<STATE, ACTION>> getTransitions() {
-		return new LinkedHashSet<Transition<STATE, ACTION>>(_transitions);
+		return new HashSet<Transition<STATE, ACTION>>(_transitions);
 	}
 
 
