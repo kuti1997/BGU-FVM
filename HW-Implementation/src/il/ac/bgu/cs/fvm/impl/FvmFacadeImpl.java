@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import entities.*;
+
 /**
  * Implement the methods in this class. You may add additional classes as you
  * want, as long as they live in the {@code impl} package, or one of its 
@@ -24,7 +26,9 @@ public class FvmFacadeImpl implements FvmFacade {
 
     @Override
     public <S, A, P> TransitionSystem<S, A, P> createTransitionSystem() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+
+        TransitionSystemImpl<S, A, P> ts = new TransitionSystemImpl<S, A, P>();
+        return ts;
     }
 
     @Override
