@@ -27,8 +27,7 @@ public class FvmFacadeImpl implements FvmFacade {
     @Override
     public <S, A, P> TransitionSystem<S, A, P> createTransitionSystem() {
 
-        TransitionSystemImpl<S, A, P> ts = new TransitionSystemImpl<S, A, P>();
-        return ts;
+        return new TransitionSystemImpl<S, A, P>();
     }
 
     @Override
