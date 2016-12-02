@@ -55,7 +55,23 @@ public class FvmFacadeImpl implements FvmFacade {
 
 	@Override
 	public <S, A, P> boolean isAPDeterministic(TransitionSystem<S, A, P> ts) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isAPDeterministic
+		Set <S> ts_initial_states = ts.getInitialStates();
+		if(ts_initial_states.size() > 1)
+			return false;
+		
+		Set <S> ts_states = ts.getStates();
+		Set <P> ts_atomic_propositions = ts.getAtomicPropositions();
+		
+		Set <S> single_state_posts = new HashSet<S>();
+		for(S state : ts_states){
+			single_state_posts = post(ts , state);
+			for(P ap : ts_atomic_propositions){
+				
+			}
+		}
+		
+		
+		return true;
 	}
 
 	@Override
