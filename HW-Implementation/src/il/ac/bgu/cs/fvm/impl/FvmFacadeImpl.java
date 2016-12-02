@@ -134,22 +134,67 @@ public class FvmFacadeImpl implements FvmFacade {
 
 	@Override
 	public <S> Set<S> pre(TransitionSystem<S, ?, ?> ts, S s) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement pre
+		Set<S> states_to_return = new HashSet<S>();
+		states_to_return = preHelper(ts, s);
+		return states_to_return;
+	}
+
+	private <S , A> Set<S> preHelper(TransitionSystem<S, A, ?> ts, S s) {
+		Set<S> states_to_return = new HashSet<S>();
+
+		Set<A> ts_actions = (Set<A>) ts.getActions();
+
+		Set<S> acc = new HashSet<S>();
+		for(A action : ts_actions){
+			acc = pre(ts, s, action);
+			states_to_return.addAll(acc);
+		}
+
+		return states_to_return;
 	}
 
 	@Override
 	public <S> Set<S> pre(TransitionSystem<S, ?, ?> ts, Set<S> c) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement pre
+		Set<S> states_to_return = new HashSet<S>();
+
+		Set<S> acc = new HashSet<S>();
+		for(S state : c){
+			acc = pre(ts, state);
+			states_to_return.addAll(acc);
+		}
+
+		return states_to_return;
 	}
 
 	@Override
 	public <S, A> Set<S> pre(TransitionSystem<S, A, ?> ts, Set<S> c, A a) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement pre
+		Set<S> states_to_return = new HashSet<S>();
+
+		Set<S> acc = new HashSet<S>();
+		for(S state : c){
+			acc = pre(ts, state, a);
+			states_to_return.addAll(acc);
+		}
+
+		return states_to_return;
 	}
 
 	@Override
 	public <S, A> Set<S> pre(TransitionSystem<S, A, ?> ts, S s, A a) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement pre
+		Set<S> states_to_return = new HashSet<S>();
+		HashSet<Transition<S, A>> tsTransitions = (HashSet<Transition<S, A>>) ts.getTransitions(); 
+
+		for(Transition<S, A> trans: tsTransitions ){
+			A action_of_transition = trans.getAction();
+			S to_state = trans.getTo();
+
+			if( action_of_transition.equals(a) && to_state.equals(s)){
+				S from_state = trans.getFrom();
+				states_to_return.add(from_state);
+			}
+		}
+
+		return states_to_return;
 	}
 
 	@Override
