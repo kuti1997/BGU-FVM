@@ -8,9 +8,11 @@ import il.ac.bgu.cs.fvm.programgraph.ActionDef;
 import il.ac.bgu.cs.fvm.programgraph.ConditionDef;
 import il.ac.bgu.cs.fvm.programgraph.ProgramGraph;
 import il.ac.bgu.cs.fvm.transitionsystem.AlternatingSequence;
+import il.ac.bgu.cs.fvm.transitionsystem.Transition;
 import il.ac.bgu.cs.fvm.transitionsystem.TransitionSystem;
 import il.ac.bgu.cs.fvm.util.Pair;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -77,7 +79,20 @@ public class FvmFacadeImpl implements FvmFacade {
 
     @Override
     public <S, A> Set<S> post(TransitionSystem<S, A, ?> ts, S s, A a) {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement post
+    	Set<S> states_to_return = new HashSet<S>();
+    	HashSet<Transition<S, A>> tsTransitions = (HashSet<Transition<S, A>>) ts.getTransitions(); 
+    	
+    	for(Transition<S, A> trans: tsTransitions ){
+    		S from_state = trans.getFrom();
+    		A action_of_transition = trans.getAction();
+    		
+    		if(from_state.equals(s) && action_of_transition.equals(a)){
+    			S to_state = trans.getTo();
+    			states_to_return.add(to_state);
+    		}
+    	}
+    	
+    	return states_to_return;
     }
 
     @Override
