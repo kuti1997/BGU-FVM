@@ -69,7 +69,23 @@ public class FvmFacadeImpl implements FvmFacade {
 
     @Override
     public <S> Set<S> post(TransitionSystem<S, ?, ?> ts, S s) {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement post
+    	Set<S> states_to_return = new HashSet<S>();
+    	states_to_return = postHelper(ts, s);
+    	return states_to_return;
+    }
+    
+    private <S , A> Set<S> postHelper(TransitionSystem<S, A, ?> ts, S s) {
+    	Set<S> states_to_return = new HashSet<S>();
+    	
+		Set<A> ts_actions = (Set<A>) ts.getActions();
+    	
+    	Set<S> acc = new HashSet<S>();
+    	for(A action : ts_actions){
+    		acc = post(ts, s, action);
+    		states_to_return.addAll(acc);
+    	}
+    	
+    	return states_to_return;
     }
 
     @Override
