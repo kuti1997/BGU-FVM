@@ -34,7 +34,23 @@ public class FvmFacadeImpl implements FvmFacade {
 
 	@Override
 	public <S, A, P> boolean isActionDeterministic(TransitionSystem<S, A, P> ts) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isActionDeterministic
+		Set <S> ts_states = ts.getStates();
+		Set <A> ts_action = ts.getActions();
+		
+		Set<S> states_to_check = new HashSet<S>();
+		for(S state : ts_states){
+			for(A action : ts_action){
+				states_to_check = post(ts, state, action);
+				if(states_to_check.size() > 1)
+					return false;
+			}
+		}
+		
+		Set <S> ts_initial_states = ts.getInitialStates();
+		if(ts_initial_states.size() > 1)
+			return false;
+		
+		return true;
 	}
 
 	@Override
