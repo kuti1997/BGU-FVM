@@ -310,7 +310,33 @@ public class FvmFacadeImpl implements FvmFacade {
 
 	@Override
 	public <S, A> Set<S> reach(TransitionSystem<S, A, ?> ts) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement reach
+		Set<S> to_return = new HashSet<S>();
+		
+		for(S init : ts.getInitialStates()){
+			to_return.add(init);
+			to_return.addAll(reach(ts, init, to_return ));
+		}
+
+		
+		return to_return;
+	}
+
+	private <S, A> Set<S> reach(TransitionSystem<S, A, ?> ts, S state, Set<S> to_return) {
+		if(post(ts, state).size() == 0){
+			return to_return;
+		}
+		else {
+			for(Transition<S , A> trans : ts.getTransitions()){
+				if(trans.getFrom().equals(state)){
+					if(! to_return.contains(trans.getTo())){
+						to_return.add(trans.getTo());
+						reach(ts, trans.getTo(), to_return);
+					}
+				}
+			}
+		}
+		
+		return to_return;
 	}
 
 	@Override
