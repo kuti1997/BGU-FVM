@@ -4,6 +4,8 @@ import il.ac.bgu.cs.fvm.FvmFacade;
 import il.ac.bgu.cs.fvm.automata.Automaton;
 import il.ac.bgu.cs.fvm.channelsystem.ChannelSystem;
 import il.ac.bgu.cs.fvm.circuits.Circuit;
+import il.ac.bgu.cs.fvm.exceptions.ActionNotFoundException;
+import il.ac.bgu.cs.fvm.exceptions.StateNotFoundException;
 import il.ac.bgu.cs.fvm.programgraph.ActionDef;
 import il.ac.bgu.cs.fvm.programgraph.ConditionDef;
 import il.ac.bgu.cs.fvm.programgraph.ProgramGraph;
@@ -59,15 +61,24 @@ public class FvmFacadeImpl implements FvmFacade {
 		if(ts_initial_states.size() > 1)
 			return false;
 		
-		Set <S> ts_states = ts.getStates();
-		Set <P> ts_atomic_propositions = ts.getAtomicPropositions();
+		Set <S> ts_states = ts.getStates();		
+		
 		
 		Set <S> single_state_posts = new HashSet<S>();
 		for(S state : ts_states){
 			single_state_posts = post(ts , state);
-			for(P ap : ts_atomic_propositions){
-				
+			@SuppressWarnings("unchecked")
+			S[] posts_in_array = (S[]) single_state_posts.toArray();
+			for(int i = 0 ; i < posts_in_array.length - 1 ; i++ ){
+				for(int j = i + 1 ; j < posts_in_array.length ; j++ ){
+					if(ts.getLabel(posts_in_array[i]).containsAll(ts.getLabel(posts_in_array[j]))){
+						if(ts.getLabel(posts_in_array[j]).containsAll(ts.getLabel(posts_in_array[i]))){
+							return false;
+						}
+					}
+				}
 			}
+
 		}
 		
 		
@@ -76,29 +87,97 @@ public class FvmFacadeImpl implements FvmFacade {
 
 	@Override
 	public <S, A, P> boolean isExecution(TransitionSystem<S, A, P> ts, AlternatingSequence<S, A> e) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isExecution
+		if(isInitialExecutionFragment(ts , e) && isMaximalExecutionFragment(ts , e))
+			return true;
+		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <S, A, P> boolean isExecutionFragment(TransitionSystem<S, A, P> ts, AlternatingSequence<S, A> e) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isExecutionFragment
+		S from = e.head();
+		if(!state_exist(ts, from))
+			throw new StateNotFoundException(from);
+		if(e.tail().size() == 0){
+			return true;
+		}
+			
+
+		AlternatingSequence<S, A> initial_tail = (AlternatingSequence<S, A>) e.tail();
+
+		A action = (A) initial_tail.head();
+		if(!action_exist(ts, action))
+			throw new ActionNotFoundException(action);
+		
+		AlternatingSequence<S, A> tail = (AlternatingSequence<S, A>) initial_tail.tail();
+		while(tail.size() != 0){
+			S target_state_to_check = tail.head();
+			
+			if(!state_exist(ts, target_state_to_check))
+				throw new StateNotFoundException(target_state_to_check);
+			
+			Set <S> post_of_from = post(ts , from, action);
+			if(!post_of_from.contains(target_state_to_check))
+				return false;
+			
+			from = target_state_to_check;
+			initial_tail = (AlternatingSequence<S, A>) tail.tail();
+			if(initial_tail.size() == 0){
+				return true;
+			}
+			action = (A) initial_tail.head();
+			if(!action_exist(ts, action))
+				throw new ActionNotFoundException(action);
+			tail = (AlternatingSequence<S, A>) initial_tail.tail();
+			
+		}
+		
+		return true;
+		
 	}
 
 	@Override
 	public <S, A, P> boolean isInitialExecutionFragment(TransitionSystem<S, A, P> ts, AlternatingSequence<S, A> e) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isInitialExecutionFragment
+		if(!isExecutionFragment(ts , e))
+			return false;
+		if(!ts.getInitialStates().contains(e.head()))
+			return false;
+		return true;
 	}
 
 	@Override
 	public <S, A, P> boolean isMaximalExecutionFragment(TransitionSystem<S, A, P> ts, AlternatingSequence<S, A> e) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isMaximalExecutionFragment
+		if(!isExecutionFragment(ts , e))
+			return false;
+		if(!isStateTerminal(ts , e.last()))
+			return false;
+		return true;
 	}
 
 	@Override
 	public <S, A> boolean isStateTerminal(TransitionSystem<S, A, ?> ts, S s) {
-		throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement isStateTerminal
+		if(! state_exist(ts, s))
+			throw new StateNotFoundException(s);
+		Set<S> s_posts = post(ts, s);
+		if(s_posts.size() == 0)
+			return true;
+		return false;
 	}
-
+	
+	private <S , A> boolean state_exist(TransitionSystem<S, A, ?> ts , S to_compare) {
+		for (S state : ts.getStates())
+			if(state.equals(to_compare))
+				return true;
+		return false;
+	}
+	
+	private <S , A> boolean action_exist(TransitionSystem<S, A, ?> ts , A to_compare) {
+		for (A action : ts.getActions())
+			if(action.equals(to_compare))
+				return true;
+		return false;
+	}
+	
 	@Override
 	public <S> Set<S> post(TransitionSystem<S, ?, ?> ts, S s) {
 		Set<S> states_to_return = new HashSet<S>();
