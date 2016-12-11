@@ -226,4 +226,65 @@ public class TransitionSystemImpl<STATE, ACTION, ATOMIC_PROPOSITION> implements 
 		_transitions.remove(t);
 	}
 
+	
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((_actions == null) ? 0 : _actions.hashCode());
+		result = prime * result + ((_atomic_propositions == null) ? 0 : _atomic_propositions.hashCode());
+		result = prime * result + ((_initial_states == null) ? 0 : _initial_states.hashCode());
+		result = prime * result + ((_labels == null) ? 0 : _labels.hashCode());
+		result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+		result = prime * result + ((_states == null) ? 0 : _states.hashCode());
+		result = prime * result + ((_transitions == null) ? 0 : _transitions.hashCode());
+		return result;
+	}
+
+	
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TransitionSystemImpl other = (TransitionSystemImpl) obj;
+		if (_actions == null) {
+			if (other._actions != null)
+				return false;
+		} else if (!_actions.equals(other._actions))
+			return false;
+		if (_atomic_propositions == null) {
+			if (other._atomic_propositions != null)
+				return false;
+		} else if (!_atomic_propositions.equals(other._atomic_propositions))
+			return false;
+		if (_initial_states == null) {
+			if (other._initial_states != null)
+				return false;
+		} else if (!_initial_states.equals(other._initial_states))
+			return false;
+		if (_labels == null) {
+			if (other._labels != null)
+				return false;
+		} else if (!_labels.equals(other._labels))
+			return false;
+		if (_name == null) {
+			if (other._name != null)
+				return false;
+		} else if (!_name.equals(other._name))
+			return false;
+		if (_states == null) {
+			if (other._states != null)
+				return false;
+		} else if (!_states.equals(other._states))
+			return false;
+		if (_transitions == null) {
+			if (other._transitions != null)
+				return false;
+		} else if (!_transitions.equals(other._transitions))
+			return false;
+		return true;
+	}
+
 }
