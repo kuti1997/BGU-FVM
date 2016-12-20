@@ -9,7 +9,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library name="junit4">
         <CLASSES>
           <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/" />
@@ -20,7 +20,6 @@
     </orderEntry>
     <orderEntry type="module" module-name="HW-Definitions" />
     <orderEntry type="module" module-name="HW-Implementation" />
-    <orderEntry type="library" name="junit-4.12" level="project" />
     <orderEntry type="library" name="hamcrest-core-1.3" level="project" />
   </component>
 </module>
