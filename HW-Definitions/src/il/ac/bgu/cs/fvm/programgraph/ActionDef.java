@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Specifies the format and the effect of an action in a {@link ProgramGraph}.
  */
-public interface ActionDef {
+public interface  ActionDef {
 
 	/**
 	 * Test if the candidate string matches action defined by this object.
