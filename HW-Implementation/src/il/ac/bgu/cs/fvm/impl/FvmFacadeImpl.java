@@ -19,7 +19,6 @@ import il.ac.bgu.cs.fvm.util.Pair;
 
 import java.io.InputStream;
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
@@ -850,7 +849,70 @@ public class FvmFacadeImpl implements FvmFacade
     @Override
     public <L, A> TransitionSystem<Pair<L, Map<String, Object>>, A, String> transitionSystemFromProgramGraph(ProgramGraph<L, A> pg, Set<ActionDef> actionDefs, Set<ConditionDef> conditionDefs)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement transitionSystemFromProgramGraph
+        TransitionSystem<Pair<L, Map<String, Object>>, A, String> ret = createTransitionSystem();
+        Set<L> locations = pg.getLocations();
+        Set<PGTransition<L, A>> transitions = pg.getTransitions();
+        Set<List<String>> initializations = pg.getInitalizations();
+        Set<L> initial_locations = pg.getInitialLocations();
+        Queue<Pair<L, Map<String, Object>>> reach = new LinkedList();
+
+        //add initial states
+        for (L initial_location : initial_locations)
+            for (List<String> conditions : initializations)
+            {
+                Map<String, Object> initial_eval = new HashMap<>();
+                for (String cond : conditions)
+                {
+                    initial_eval = ActionDef.effect(actionDefs, initial_eval, cond);
+
+                }
+
+                Pair<L, Map<String, Object>> state = new Pair<L, Map<String, Object>>(initial_location, initial_eval);
+                ret.addState(state);
+                ret.addInitialState(state);
+                reach.add(state);
+
+                //add aps
+                for (Map.Entry<String, Object> entry : initial_eval.entrySet())
+                {
+                    String ap = entry.getKey().toString() + " = " + entry.getValue().toString();
+                    ret.addAtomicProposition(ap);
+                    ret.addToLabel(state, ap);
+                }
+            }
+
+
+        while (!reach.isEmpty())
+        {
+            Pair<L, Map<String, Object>> from = reach.poll();
+            for (PGTransition<L, A> transition : transitions)
+            {
+                if (transition.getFrom().equals(from.first) && ConditionDef.evaluate(conditionDefs, from.second, transition.getCondition()))
+                {
+                    //  ret.addAtomicProposition(transition.getCondition());
+                    ret.addAction(transition.getAction());
+                    Pair<L, Map<String, Object>> to = new Pair<L, Map<String, Object>>(transition.getTo(), ActionDef.effect(actionDefs, from.second, transition.getAction()));
+                    if (!ret.getStates().contains(to))
+                    {
+                        ret.addState(to);
+                        reach.add(to);
+                    }
+                    ret.addTransition(new Transition<Pair<L, Map<String, Object>>, A>(from, transition.getAction(), to));
+
+                    //add aps
+                    for (Map.Entry<String, Object> entry : to.second.entrySet())
+                    {
+                        String ap = entry.getKey().toString() + " = " + entry.getValue().toString();
+                        ret.addAtomicProposition(ap);
+                        ret.addToLabel(to, ap);
+                    }
+                }
+            }
+        }
+
+
+        return ret;
+
     }
 
     @Override

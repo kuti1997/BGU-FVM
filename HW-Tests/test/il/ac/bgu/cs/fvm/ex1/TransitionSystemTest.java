@@ -125,8 +125,6 @@ public class TransitionSystemTest {
 		ts.addToLabel(S1, P);
 		ts.removeLabel(S1, P);
 		ts.removeState(S1);
-
-		
 	}
 
 	@Test(timeout = 2000)
