@@ -94,4 +94,8 @@ public class ProgramGraphImpl<L, A> implements ProgramGraph<L, A>
     {
         this.name = name;
     }
+    
+    public void setLocations(HashSet<L>  locs){
+    	this.locations = locs;
+    }
 }

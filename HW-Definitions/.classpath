@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="lib/antlr-4.5.1-complete.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-4.5.1-complete.jar" sourcepath="C:/Users/Sagiv Mapgavker/.m2/repository/org/antlr/antlr4/4.5.1-1/antlr4-4.5.1-1-sources.jar"/>
 	<classpathentry kind="lib" path="lib/org.svvrl.goal.cmd.jar"/>
 	<classpathentry kind="lib" path="lib/org.svvrl.goal.core.jar"/>
 	<classpathentry kind="lib" path="lib/org.svvrl.goal.gui.jar"/>
