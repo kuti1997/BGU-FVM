@@ -966,7 +966,7 @@ public class FvmFacadeImpl implements FvmFacade
 		ProgramGraph<String, String> pg = createProgramGraph();
 		
 		HashSet<String> loc = new HashSet<String>();
-		loc = sub(root , loc);
+		loc = sub(root , pg);
 		pg.addInitialLocation(root.getText());
 		
 		
@@ -974,31 +974,31 @@ public class FvmFacadeImpl implements FvmFacade
 		return pg;
 	}
 
-	private HashSet<String> sub(StmtContext root, HashSet<String> loc) {
+	private HashSet<String> sub(StmtContext root, ProgramGraph<String, String> pg) {
 		
 		if(root.assstmt() != null|| root.chanreadstmt() != null|| root.chanwritestmt() != null||
 				root.atomicstmt() != null||root.skipstmt() != null){
-			loc.add("");
-			loc.add(root.getText());
+			pg.addLocation("");
+			pg.addLocation(root.getText());
 			
 			
 		}
 		
 		else if(root.ifstmt() != null){
-			loc.add(root.getText());
+			pg.addLocation(root.getText());
 			
 			List<OptionContext> options = root.ifstmt().option();
 			
 			for(OptionContext option  : options){
 				HashSet<String> emptyLoc = new HashSet<String>();
-				loc.addAll(sub(option.stmt() , emptyLoc));				
+				pg.addAllLocations(sub(option.stmt() , pg));				
 			}
 			
 		}
 		
 		else if (root.dostmt() != null){
-			loc.add(root.getText());
-			loc.add("");
+			pg.add(root.getText());
+			pg.add("");
 			
 			List<OptionContext> options = root.dostmt().option();
 			for(OptionContext option  : options){ //need to check if .stmt() is needed
@@ -1006,24 +1006,24 @@ public class FvmFacadeImpl implements FvmFacade
 				HashSet<String> temp =  sub(option.stmt() , emptyLoc);
 				temp.remove("");
 				for(String str : temp){
-					loc.add(str + ";" + root.getText());
+					pg.add(str + ";" + root.getText());
 				}
 			}
 		}
 		
 		else{ // ;
 			HashSet<String> emptyLoc1 = new HashSet<String>();
-			loc.addAll( sub(root.stmt(1) , emptyLoc1) );
+			pg.addAll( sub(root.stmt(1) , emptyLoc1) );
 			
 			HashSet<String> emptyLoc0 = new HashSet<String>();
 			HashSet<String> temp =  sub(root.stmt(0) , emptyLoc0);
 			temp.remove("");
 			for(String str : temp){
-				loc.add(str + ";" + root.stmt(1).getText());
+				pg.add(str + ";" + root.stmt(1).getText());
 			}
 		}
 		
-		return loc;
+		return pg;
 	}
 
 

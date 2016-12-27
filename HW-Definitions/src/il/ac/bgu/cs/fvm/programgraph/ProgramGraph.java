@@ -92,7 +92,7 @@ public interface ProgramGraph<L, A> {
      */
     void setName(String name);
 
-	void setLocations(HashSet<L> loc);
+	void addAllLocations(HashSet<L> loc);
 
 
 }
