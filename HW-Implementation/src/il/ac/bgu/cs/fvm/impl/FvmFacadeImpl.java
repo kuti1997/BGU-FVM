@@ -147,7 +147,6 @@ public class FvmFacadeImpl implements FvmFacade
     @Override
     public <S, A, P> boolean isExecutionFragment(TransitionSystem<S, A, P> ts, AlternatingSequence<S, A> e)
     {
-        //TODO:: what happen if there is a actions without state? like s1 a1 s2 a2
         S from = e.head();
         if (!state_exist(ts, from)) throw new StateNotFoundException(from);
         if (e.tail().size() == 0)
@@ -850,7 +849,6 @@ public class FvmFacadeImpl implements FvmFacade
     public <L, A> TransitionSystem<Pair<L, Map<String, Object>>, A, String> transitionSystemFromProgramGraph(ProgramGraph<L, A> pg, Set<ActionDef> actionDefs, Set<ConditionDef> conditionDefs)
     {
         TransitionSystem<Pair<L, Map<String, Object>>, A, String> ret = createTransitionSystem();
-        Set<L> locations = pg.getLocations();
         Set<PGTransition<L, A>> transitions = pg.getTransitions();
         Set<List<String>> initializations = pg.getInitalizations();
         Set<L> initial_locations = pg.getInitialLocations();
