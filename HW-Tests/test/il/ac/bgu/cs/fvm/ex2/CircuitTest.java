@@ -20,201 +20,136 @@ import il.ac.bgu.cs.fvm.util.Pair;
 
 public class CircuitTest {
 
-    FvmFacade fvmFacadeImpl = FvmFacade.createInstance();
+	FvmFacade fvmFacadeImpl = FvmFacade.createInstance();
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
-    public void test1() throws Exception {
-        Circuit c = new ExampleCircuit();
+	public void test1() throws Exception {
+		Circuit c = new ExampleCircuit();
 
-        TransitionSystem ts = fvmFacadeImpl.transitionSystemFromCircuit(c);
+		TransitionSystem ts = fvmFacadeImpl.transitionSystemFromCircuit(c);
 
-        assertEquals(
-                set(p(seq(true), seq(true)),
-                    p(seq(false), seq(true)),
-                    p(seq(true), seq(false)),
-                    p(seq(false), seq(false))
-                ), ts.getStates());
+		assertEquals(set(p(seq(true), seq(true)), p(seq(false), seq(true)), p(seq(true), seq(false)),
+				p(seq(false), seq(false))), ts.getStates());
 
-        assertEquals(
-                set(p(seq(false), seq(true)),
-                    p(seq(false), seq(false))
-                ), ts.getInitialStates());
+		assertEquals(set(p(seq(false), seq(true)), p(seq(false), seq(false))), ts.getInitialStates());
 
-        assertEquals(set(
-                seq(false),
-                seq(true)
-        ), ts.getActions());
+		assertEquals(set(seq(false), seq(true)), ts.getActions());
 
-        assertEquals(set("r", "x", "y"), ts.getAtomicPropositions());
+		assertEquals(set("r", "x", "y"), ts.getAtomicPropositions());
 
-        assertEquals(set(
-                transition(p(seq(false), seq(true)), seq(true), p(seq(true), seq(true))),
-                transition(p(seq(false), seq(false)), seq(true), p(seq(false), seq(true))),
-                transition(p(seq(true), seq(false)), seq(true), p(seq(true), seq(true))),
-                transition(p(seq(false), seq(true)), seq(false), p(seq(true), seq(false))),
-                transition(p(seq(false), seq(false)), seq(false), p(seq(false), seq(false))),
-                transition(p(seq(true), seq(false)), seq(false), p(seq(true), seq(false))),
-                transition(p(seq(true), seq(true)), seq(true), p(seq(true), seq(true))),
-                transition(p(seq(true), seq(true)), seq(false), p(seq(true), seq(false)))
-        ), ts.getTransitions());
+		assertEquals(
+				set(transition(p(seq(false), seq(true)), seq(true), p(seq(true), seq(true))),
+						transition(p(seq(false), seq(false)), seq(true), p(seq(false), seq(true))),
+						transition(p(seq(true), seq(false)), seq(true), p(seq(true), seq(true))),
+						transition(p(seq(false), seq(true)), seq(false), p(seq(true), seq(false))),
+						transition(p(seq(false), seq(false)), seq(false), p(seq(false), seq(false))),
+						transition(p(seq(true), seq(false)), seq(false), p(seq(true), seq(false))),
+						transition(p(seq(true), seq(true)), seq(true), p(seq(true), seq(true))),
+						transition(p(seq(true), seq(true)), seq(false), p(seq(true), seq(false)))),
+				ts.getTransitions());
 
-        assertEquals(
-                set("r", "x", "y"),
-                ts.getLabel(p(seq(true), seq(true))));
+		assertEquals(set("r", "x", "y"), ts.getLabel(p(seq(true), seq(true))));
 
-        assertEquals(
-                set("x"),
-                ts.getLabel(p(seq(false), seq(true))));
+		assertEquals(set("x"), ts.getLabel(p(seq(false), seq(true))));
 
-        assertEquals(
-                set("r"),
-                ts.getLabel(p(seq(true), seq(false))));
+		assertEquals(set("r"), ts.getLabel(p(seq(true), seq(false))));
 
-        assertEquals(
-                set("y"),
-                ts.getLabel(p(seq(false), seq(false))));
-    }
+		assertEquals(set("y"), ts.getLabel(p(seq(false), seq(false))));
+	}
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Test
-    public void test2() throws Exception {
-        Circuit c;
-        c = new Circuit() {
+	public void test2() throws Exception {
+		Circuit c;
+		c = new Circuit() {
 
-            @Override
-            public List<Boolean> updateRegisters(List<Boolean> registers,
-                                                 List<Boolean> inputs) {
-                return registers;
-            }
+			@Override
+			public List<Boolean> updateRegisters(List<Boolean> registers, List<Boolean> inputs) {
+				return registers;
+			}
 
-            @Override
-            public List<Boolean> computeOutputs(List<Boolean> registers,
-                                                List<Boolean> inputs) {
-                return inputs;
-            }
+			@Override
+			public List<Boolean> computeOutputs(List<Boolean> registers, List<Boolean> inputs) {
+				return inputs;
+			}
 
-            @Override
-            public List<String> getInputPortNames() {
-                return asList("x1", "x2");
-            }
+			@Override
+			public List<String> getInputPortNames() {
+				return asList("x1", "x2");
+			}
 
-            @Override
-            public List<String> getRegisterNames() {
-                return asList("r1", "r2");
-            }
+			@Override
+			public List<String> getRegisterNames() {
+				return asList("r1", "r2");
+			}
 
-            @Override
-            public List<String> getOutputPortNames() {
-                return asList("y1", "y2");
-            }
-        };
+			@Override
+			public List<String> getOutputPortNames() {
+				return asList("y1", "y2");
+			}
+		};
 
-        TransitionSystem<Pair<List<Boolean>, List<Boolean>>, List<Boolean>, Object> ts;
-        ts = fvmFacadeImpl.transitionSystemFromCircuit(c);
+		TransitionSystem<Pair<List<Boolean>, List<Boolean>>, List<Boolean>, Object> ts;
+		ts = fvmFacadeImpl.transitionSystemFromCircuit(c);
 
-        assertEquals(set(p(seq(false, false), seq(true, false)),
-                         p(seq(false, false), seq(false, false)),
-                         p(seq(false, false), seq(true, true)),
-                         p(seq(false, false), seq(false, true))
-        ), ts.getStates());
+		assertEquals(set(p(seq(false, false), seq(true, false)), p(seq(false, false), seq(false, false)),
+				p(seq(false, false), seq(true, true)), p(seq(false, false), seq(false, true))), ts.getStates());
 
-        assertEquals(set(p(seq(false, false), seq(true, false)),
-                         p(seq(false, false), seq(false, false)),
-                         p(seq(false, false), seq(true, true)),
-                         p(seq(false, false), seq(false, true))
-        ), ts.getInitialStates());
+		assertEquals(
+				set(p(seq(false, false), seq(true, false)), p(seq(false, false), seq(false, false)),
+						p(seq(false, false), seq(true, true)), p(seq(false, false), seq(false, true))),
+				ts.getInitialStates());
 
-        assertEquals(set(seq(false, false),
-                         seq(true, true),
-                         seq(true, false),
-                         seq(false, true)
-        ), ts.getActions());
+		assertEquals(set(seq(false, false), seq(true, true), seq(true, false), seq(false, true)), ts.getActions());
 
-        assertEquals(
-                set("r2", "y1", "x1", "y2", "x2", "r1"),
-                ts.getAtomicPropositions());
+		assertEquals(set("r2", "y1", "x1", "y2", "x2", "r1"), ts.getAtomicPropositions());
 
-        assertEquals(set(
-                transition(
-                        p(seq(false, false), seq(true, false)),
-                        seq(true, true),
-                        p(seq(false, false), seq(true, true))),
-                transition(
-                        p(seq(false, false), seq(true, false)),
-                        seq(false, false),
-                        p(seq(false, false), seq(false, false))),
-                transition(
-                        p(seq(false, false), seq(false, true)),
-                        seq(false, true),
-                        p(seq(false, false), seq(false, true))),
-                transition(
-                        p(seq(false, false), seq(true, true)),
-                        seq(false, true),
-                        p(seq(false, false), seq(false, true))),
-                transition(
-                        p(seq(false, false), seq(false, true)),
-                        seq(true, false),
-                        p(seq(false, false), seq(true, false))),
-                transition(
-                        p(seq(false, false), seq(false, false)),
-                        seq(false, true),
-                        p(seq(false, false), seq(false, true))),
-                transition(
-                        p(seq(false, false), seq(true, false)),
-                        seq(false, true),
-                        p(seq(false, false), seq(false, true))),
-                transition(
-                        p(seq(false, false), seq(false, false)),
-                        seq(true, false),
-                        p(seq(false, false), seq(true, false))),
-                transition(
-                        p(seq(false, false), seq(true, true)),
-                        seq(true, false),
-                        p(seq(false, false), seq(true, false))),
-                transition(
-                        p(seq(false, false), seq(false, true)),
-                        seq(false, false),
-                        p(seq(false, false), seq(false, false))),
-                transition(
-                        p(seq(false, false), seq(false, false)),
-                        seq(true, true),
-                        p(seq(false, false), seq(true, true))),
-                transition(
-                        p(seq(false, false), seq(true, true)),
-                        seq(true, true),
-                        p(seq(false, false), seq(true, true))),
-                transition(
-                        p(seq(false, false), seq(true, false)),
-                        seq(true, false),
-                        p(seq(false, false), seq(true, false))),
-                transition(
-                        p(seq(false, false), seq(false, true)),
-                        seq(true, true),
-                        p(seq(false, false), seq(true, true))),
-                transition(
-                        p(seq(false, false), seq(false, false)),
-                        seq(false, false),
-                        p(seq(false, false), seq(false, false))),
-                transition(
-                        p(seq(false, false), seq(true, true)),
-                        seq(false, false),
-                        p(seq(false, false), seq(false, false)))), ts.getTransitions());
+		assertEquals(set(
+				transition(p(seq(false, false), seq(true, false)), seq(true, true),
+						p(seq(false, false), seq(true, true))),
+				transition(p(seq(false, false), seq(true, false)), seq(false, false),
+						p(seq(false, false), seq(false, false))),
+				transition(p(seq(false, false), seq(false, true)), seq(false, true),
+						p(seq(false, false), seq(false, true))),
+				transition(p(seq(false, false), seq(true, true)), seq(false, true),
+						p(seq(false, false), seq(false, true))),
+				transition(p(seq(false, false), seq(false, true)), seq(true, false),
+						p(seq(false, false), seq(true, false))),
+				transition(p(seq(false, false), seq(false, false)), seq(false, true),
+						p(seq(false, false), seq(false, true))),
+				transition(p(seq(false, false), seq(true, false)), seq(false, true),
+						p(seq(false, false), seq(false, true))),
+				transition(p(seq(false, false), seq(false, false)), seq(true, false),
+						p(seq(false, false), seq(true, false))),
+				transition(p(seq(false, false), seq(true, true)), seq(true, false),
+						p(seq(false, false), seq(true, false))),
+				transition(p(seq(false, false), seq(false, true)), seq(false, false),
+						p(seq(false, false), seq(false, false))),
+				transition(p(seq(false, false), seq(false, false)), seq(true, true),
+						p(seq(false, false), seq(true, true))),
+				transition(p(seq(false, false), seq(true, true)), seq(true, true),
+						p(seq(false, false), seq(true, true))),
+				transition(p(seq(false, false), seq(true, false)), seq(true, false),
+						p(seq(false, false), seq(true, false))),
+				transition(p(seq(false, false), seq(false, true)), seq(true, true),
+						p(seq(false, false), seq(true, true))),
+				transition(p(seq(false, false), seq(false, false)), seq(false, false),
+						p(seq(false, false), seq(false, false))),
+				transition(p(seq(false, false), seq(true, true)), seq(false, false),
+						p(seq(false, false), seq(false, false)))),
+				ts.getTransitions());
 
-        assertEquals(set("y1", "x1"),
-                     ts.getLabel(p(seq(false, false), seq(true, false))));
+		assertEquals(set("y1", "x1"), ts.getLabel(p(seq(false, false), seq(true, false))));
 
-        assertEquals(set(),
-                     ts.getLabel(p(seq(false, false), seq(false, false))));
+		assertEquals(set(), ts.getLabel(p(seq(false, false), seq(false, false))));
 
-        assertEquals(set("y1", "x1", "y2", "x2"),
-                     ts.getLabel(p(seq(false, false), seq(true, true))));
+		assertEquals(set("y1", "x1", "y2", "x2"), ts.getLabel(p(seq(false, false), seq(true, true))));
 
-        assertEquals(set("y2", "x2"),
-                     ts.getLabel(p(seq(false, false), seq(false, true))));
-    }
+		assertEquals(set("y2", "x2"), ts.getLabel(p(seq(false, false), seq(false, true))));
+	}
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Test
     public void test3() throws Exception {
         Circuit cc;
@@ -260,7 +195,7 @@ public class CircuitTest {
             @Override
             public List<Boolean> computeOutputs(List<Boolean> registers,
                                                 List<Boolean> inputs) {
-                return registers.subList(3, 3);
+                return registers.subList(2,3);
             }
 
             @Override
@@ -435,20 +370,20 @@ public class CircuitTest {
                         p(seq(true, true, true), seq(true)))), ts.getTransitions());
 
         assertEquals(set("inc"), ts.getLabel(p(seq(false, false, false), seq(true))));
-        assertEquals(set("r3"), ts.getLabel(p(seq(false, false, true), seq(false))));
-        assertEquals(set("r2", "r3", "inc"), ts.getLabel(p(seq(false, true, true), seq(true))));
-        assertEquals(set("r3", "inc", "r1"), ts.getLabel(p(seq(true, false, true), seq(true))));
-        assertEquals(set("r3", "inc"), ts.getLabel(p(seq(false, false, true), seq(true))));
+        assertEquals(set("r3","odd"), ts.getLabel(p(seq(false, false, true), seq(false))));
+        assertEquals(set("r2", "r3", "inc","odd"), ts.getLabel(p(seq(false, true, true), seq(true))));
+        assertEquals(set("r3", "inc", "r1","odd"), ts.getLabel(p(seq(true, false, true), seq(true))));
+        assertEquals(set("r3", "inc","odd"), ts.getLabel(p(seq(false, false, true), seq(true))));
         assertEquals(set(), ts.getLabel(p(seq(false, false, false), seq(false))));
         assertEquals(set("r2", "inc"), ts.getLabel(p(seq(false, true, false), seq(true))));
-        assertEquals(set("r2", "r3"), ts.getLabel(p(seq(false, true, true), seq(false))));
+        assertEquals(set("r2", "r3","odd"), ts.getLabel(p(seq(false, true, true), seq(false))));
         assertEquals(set("r2", "r1"), ts.getLabel(p(seq(true, true, false), seq(false))));
         assertEquals(set("r2"), ts.getLabel(p(seq(false, true, false), seq(false))));
         assertEquals(set("r1"), ts.getLabel(p(seq(true, false, false), seq(false))));
         assertEquals(set("r2", "inc", "r1"), ts.getLabel(p(seq(true, true, false), seq(true))));
-        assertEquals(set("r2", "r3", "r1"), ts.getLabel(p(seq(true, true, true), seq(false))));
+        assertEquals(set("r2", "r3", "r1","odd"), ts.getLabel(p(seq(true, true, true), seq(false))));
         assertEquals(set("inc", "r1"), ts.getLabel(p(seq(true, false, false), seq(true))));
-        assertEquals(set("r3", "r1"), ts.getLabel(p(seq(true, false, true), seq(false))));
-        assertEquals(set("r2", "r3", "inc", "r1"), ts.getLabel(p(seq(true, true, true), seq(true))));
+        assertEquals(set("r3", "r1","odd"), ts.getLabel(p(seq(true, false, true), seq(false))));
+        assertEquals(set("r2", "r3", "inc", "r1","odd"), ts.getLabel(p(seq(true, true, true), seq(true)))); 
     }
 }

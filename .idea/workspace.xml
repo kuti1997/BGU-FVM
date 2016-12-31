@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0d46fd2a-6a6a-446f-86e0-5d67db075d1e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/lib/nblibraries.properties" afterPath="$PROJECT_DIR$/HW-Definitions/lib/nblibraries.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/FvmFacade.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/FvmFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/automata/Automaton.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/automata/Automaton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ParserBasedInterleavingActDef.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ParserBasedInterleavingActDef.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/examples/MutualExclusionUsingArbiter.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/examples/MutualExclusionUsingArbiter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/examples/VendingMachineBuilder.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/examples/VendingMachineBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/GoalStructure.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/GoalStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/ObjectFactory.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/ObjectFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/goal.xsd" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/goal.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/tst.gff" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/goal/tst.gff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/Evaluator.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/Evaluator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/NanoPromela.g4" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/NanoPromela.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/NanoPromelaFileReader.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/NanoPromelaFileReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/generate-grammar.sh" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/generate-grammar.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/tst1.np" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/tst1.np" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/tst4.np" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/nanopromela/tst4.np" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ActionDef.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ActionDef.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedActDef.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedActDef.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedCondDef.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedCondDef.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ThrowingErrorListener.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ThrowingErrorListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/transitionsystem/StAXTransitionSystemXmlFormat.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/transitionsystem/StAXTransitionSystemXmlFormat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/transitionsystem/TransitionSystem.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/transitionsystem/TransitionSystem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/util/Pair.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/util/Pair.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/test/il/ac/bgu/cs/fvm/AutomatonTest.java" afterPath="$PROJECT_DIR$/HW-Definitions/test/il/ac/bgu/cs/fvm/AutomatonTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java" afterPath="$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/CircuitTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/CircuitTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/NanoPromelaTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/NanoPromelaTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/HW-Definitions/bin/" />
@@ -16,17 +47,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/BGU-FVM$All_in_HW_Tests.coverage" NAME="All in HW-Tests Coverage Results" MODIFIED="1483191016667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FvmFacadeImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FvmFacadeImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10125">
-              <caret line="879" column="13" lean-forward="false" selection-start-line="879" selection-start-column="13" selection-end-line="879" selection-end-column="13" />
+            <state relative-caret-position="310">
+              <caret line="1087" column="105" lean-forward="true" selection-start-line="1087" selection-start-column="84" selection-end-line="1087" selection-end-column="105" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getNextStateS1#0;class#FvmFacadeImpl#0" expanded="false" />
@@ -38,78 +72,30 @@
                 <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
                 <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
                 <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-                <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-                <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
+                <element signature="method#transitionSystemFromCircuit#0;class#FvmFacadeImpl#0" expanded="false" />
+                <element signature="method#isEqual#0;class#FvmFacadeImpl#0" expanded="false" />
+                <element signature="method#labelState#0;class#FvmFacadeImpl#0" expanded="false" />
+                <element signature="method#transitionSystemFromProgramGraph#0;class#FvmFacadeImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProgramGraphTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphTest.java">
+      <file leaf-file-name="ParserBasedInterleavingActDef.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ParserBasedInterleavingActDef.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2385">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChannelSystem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ChannelSystem.java">
+      <file leaf-file-name="ChannelSystemTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterleavingActDef.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/InterleavingActDef.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConditionDef.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ConditionDef.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActionDef.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ActionDef.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParserBasedActDef.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedActDef.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgramGraphProductTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="37" column="53" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="53" />
+            <state relative-caret-position="36">
+              <caret line="57" column="16" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -176,8 +162,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,151 +191,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Implementation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Implementation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Implementation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Definitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Definitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fvm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Definitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fvm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="programgraph" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BGU-FVM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HW-Definitions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fvm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="channelsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -821,76 +665,80 @@
       <workItem from="1482579977189" duration="105000" />
       <workItem from="1482580198183" duration="5617000" />
       <workItem from="1482653861773" duration="297000" />
+      <workItem from="1483122429911" duration="48000" />
+      <workItem from="1483122672681" duration="5754000" />
+      <workItem from="1483184606862" duration="8338000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 12h 59m 54s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 31m 38s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 14m 59s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 32m 07s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 17m 49s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 35m 04s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 20m 58s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 45m 06s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 22m 45s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 45m 07s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 22m 46s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 45m 09s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 23m 35s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 48m 38s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 25m 47s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 48m 57s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 37m 21s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 50m 37s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2016.12.24 at 13h 47m 03s.xml">
+    <history-entry file="All_in_HW-Tests - 2016.12.31 at 15h 51m 57s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45871000" />
+    <option name="totallyTimeSpent" value="60011000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33436534" sideWeight="0.5060606" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5897833" sideWeight="0.5030303" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33436534" sideWeight="0.4939394" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74613005" sideWeight="0.4909091" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27575758" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28484848" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5897833" sideWeight="0.4969697" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3374613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -902,7 +750,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -911,64 +759,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getNextStateS1#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getNextStateS2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#findNextState#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#interleave#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#interleave#1;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#findStartState#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/CircuitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3810">
-          <caret line="282" column="0" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/FvmFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4005">
-          <caret line="280" column="43" lean-forward="false" selection-start-line="280" selection-start-column="36" selection-end-line="280" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/function/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Implementation/src/entities/TransitionSystemImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/circuits/Circuit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1021,8 +811,10 @@
             <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromCircuit#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#isEqual#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#labelState#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromProgramGraph#0;class#FvmFacadeImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1070,8 +862,10 @@
             <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromCircuit#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#isEqual#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#labelState#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromProgramGraph#0;class#FvmFacadeImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1119,8 +913,10 @@
             <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromCircuit#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#isEqual#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#labelState#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromProgramGraph#0;class#FvmFacadeImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1209,13 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ParserBasedCondDef.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -1252,26 +1041,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="53" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/FvmFacade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1287,15 +1060,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ParserBasedInterleavingActDef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1906#1907#0" expanded="false" />
+            <element signature="e#1976#1977#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1303,22 +1072,163 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ActionDef.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
+        <state relative-caret-position="562">
           <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphProductTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6555">
+          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23357#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#5713#5714#0" expanded="false" />
+            <element signature="e#5740#5741#0" expanded="false" />
+            <element signature="e#5793#5794#0" expanded="false" />
+            <element signature="e#5847#5848#0" expanded="false" />
+            <element signature="e#5896#5897#0" expanded="false" />
+            <element signature="e#5930#5931#0" expanded="false" />
+            <element signature="e#6024#6025#0" expanded="false" />
+            <element signature="e#6052#6053#0" expanded="false" />
+            <element signature="e#6222#6223#0" expanded="false" />
+            <element signature="e#6249#6250#0" expanded="false" />
+            <element signature="e#6333#6334#0" expanded="false" />
+            <element signature="e#6365#6366#0" expanded="false" />
+            <element signature="e#7076#7077#0" expanded="false" />
+            <element signature="e#7109#7110#0" expanded="false" />
+            <element signature="e#8522#8523#0" expanded="false" />
+            <element signature="e#8567#8568#0" expanded="false" />
+            <element signature="e#8985#8986#0" expanded="false" />
+            <element signature="e#9040#9041#0" expanded="false" />
+            <element signature="e#9136#9137#0" expanded="false" />
+            <element signature="e#9181#9182#0" expanded="false" />
+            <element signature="e#9473#9474#0" expanded="false" />
+            <element signature="e#9528#9529#0" expanded="false" />
+            <element signature="e#10540#10541#0" expanded="false" />
+            <element signature="e#10626#10627#0" expanded="false" />
+            <element signature="e#14229#14230#0" expanded="false" />
+            <element signature="e#14314#14315#0" expanded="false" />
+            <element signature="e#18632#18633#0" expanded="false" />
+            <element signature="e#18694#18695#0" expanded="false" />
+            <element signature="e#18797#18798#0" expanded="false" />
+            <element signature="e#18837#18838#0" expanded="false" />
+            <element signature="e#18980#18981#0" expanded="false" />
+            <element signature="e#19022#19023#0" expanded="false" />
+            <element signature="e#20678#20679#0" expanded="false" />
+            <element signature="e#20715#20716#0" expanded="false" />
+            <element signature="e#22696#22697#0" expanded="false" />
+            <element signature="e#22749#22750#0" expanded="false" />
+            <element signature="e#23085#23086#0" expanded="false" />
+            <element signature="e#23155#23156#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ChannelSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#651#652#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ProgramGraphTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/InterleavingActDef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/examples/AlternatingBitProtocolBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="86" column="74" lean-forward="false" selection-start-line="86" selection-start-column="66" selection-end-line="86" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="57" column="16" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ParserBasedInterleavingActDef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10125">
-          <caret line="879" column="13" lean-forward="false" selection-start-line="879" selection-start-column="13" selection-end-line="879" selection-end-column="13" />
+        <state relative-caret-position="310">
+          <caret line="1087" column="105" lean-forward="true" selection-start-line="1087" selection-start-column="84" selection-end-line="1087" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getNextStateS1#0;class#FvmFacadeImpl#0" expanded="false" />
@@ -1330,25 +1240,11 @@
             <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc1#0;class#FvmFacadeImpl#0" expanded="false" />
             <element signature="method#findNextLoc2#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#bitSetToArray#0;class#FvmFacadeImpl#0" expanded="false" />
-            <element signature="method#getboolList#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromCircuit#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#isEqual#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#labelState#0;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="method#transitionSystemFromProgramGraph#0;class#FvmFacadeImpl#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/ChannelSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/channelsystem/InterleavingActDef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
