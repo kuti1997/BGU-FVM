@@ -1453,6 +1453,7 @@ public class FvmFacadeImpl implements FvmFacade
 	}
 
 	private String addSpaces(String str) {
+		str = str.replace("nsoda", "sagivmapgavker");
 		str = str.replace("fi", " fi");
 		str = str.replace("if", "if ");
 		str = str.replace("od", " od");
@@ -1463,6 +1464,7 @@ public class FvmFacadeImpl implements FvmFacade
 		str = str.replace("->", " -> ");
 		str = str.replace("skip", " skip");
 		str = str.replace("atomic", "atomic ");
+		str = str.replace("sagivmapgavker", "nsoda");
 		return str;
 	}
 
