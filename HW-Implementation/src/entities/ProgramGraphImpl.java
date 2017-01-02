@@ -98,4 +98,8 @@ public class ProgramGraphImpl<L, A> implements ProgramGraph<L, A>
     public void addAllLocations(HashSet<L>  locs){
     	this.locations.addAll(locs);
     }
+    
+    public void setAllLocations(HashSet<L>  locs){
+    	this.locations = locs;
+    }
 }
