@@ -871,23 +871,36 @@ public class FvmFacadeImpl implements FvmFacade
 
         //add initial states
         for (L initial_location : initial_locations)
-            for (List<String> conditions : initializations)
-            {
-                Map<String, Object> initial_eval = new HashMap<>();
-                for (String cond : conditions)
-                {
-                    initial_eval = ActionDef.effect(actionDefs, initial_eval, cond);
+		{
+			boolean flag = true;
+			for (List<String> conditions : initializations)
+			{
+				flag = false;
+				Map<String, Object> initial_eval = new HashMap<>();
+				for (String cond : conditions)
+				{
+					initial_eval = ActionDef.effect(actionDefs, initial_eval, cond);
 
-                }
+				}
+				Pair<L, Map<String, Object>> state = new Pair<L, Map<String, Object>>(initial_location, initial_eval);
+				ret.addState(state);
+				ret.addInitialState(state);
+				reach.add(state);
 
-                Pair<L, Map<String, Object>> state = new Pair<L, Map<String, Object>>(initial_location, initial_eval);
-                ret.addState(state);
-                ret.addInitialState(state);
-                reach.add(state);
+				labelState(ret, state);
+			}
 
-                labelState(ret, state);
-            }
+			if(flag)
+			{
+				Map<String, Object> initial_eval = new HashMap<>();
+				Pair<L, Map<String, Object>> state = new Pair<L, Map<String, Object>>(initial_location, initial_eval);
+				ret.addState(state);
+				ret.addInitialState(state);
+				reach.add(state);
+				labelState(ret, state);
+			}
 
+		}
 
         while (!reach.isEmpty())
         {
