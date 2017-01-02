@@ -894,7 +894,7 @@ public class NanoPromelaTest {
 		assertEquals(set("x:=4;if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi"), pg.getInitialLocations());
 		assertEquals(set(), pg.getInitalizations());
 		assertEquals(set(
-				pgtransition("if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi", "(x>3) && ((x<5))", "x:=x+3",//
+				pgtransition("if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi", "(x>3) && ((x<5))", "x:=x+3",
 						"do::x<5->x:=x+3::x>6->x:=x-4od"),
 				pgtransition("do::x<5->x:=x+3::x>6->x:=x-4od", "!((x<5)||(x>6))", "", ""),
 				pgtransition("do::x<5->x:=x+3::x>6->x:=x-4od", "(x<5)", "x:=x+3", "do::x<5->x:=x+3::x>6->x:=x-4od"),
