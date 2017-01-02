@@ -10,6 +10,9 @@ import il.ac.bgu.cs.fvm.channelsystem.ParserBasedInterleavingActDef;
 import il.ac.bgu.cs.fvm.circuits.Circuit;
 import il.ac.bgu.cs.fvm.exceptions.ActionNotFoundException;
 import il.ac.bgu.cs.fvm.exceptions.StateNotFoundException;
+import il.ac.bgu.cs.fvm.nanopromela.NanoPromelaFileReader;
+import il.ac.bgu.cs.fvm.nanopromela.NanoPromelaParser.OptionContext;
+import il.ac.bgu.cs.fvm.nanopromela.NanoPromelaParser.StmtContext;
 import il.ac.bgu.cs.fvm.programgraph.*;
 import il.ac.bgu.cs.fvm.transitionsystem.AlternatingSequence;
 import il.ac.bgu.cs.fvm.transitionsystem.Transition;
@@ -1155,22 +1158,300 @@ public class FvmFacadeImpl implements FvmFacade
     }
 
     @Override
-    public ProgramGraph<String, String> programGraphFromNanoPromela(String filename) throws Exception
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement programGraphFromNanoPromela
-    }
+	public ProgramGraph<String, String> programGraphFromNanoPromela(String filename) throws Exception
+	{
 
-    @Override
-    public ProgramGraph<String, String> programGraphFromNanoPromelaString(String nanopromela) throws Exception
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement programGraphFromNanoPromelaString
-    }
+		StmtContext root= NanoPromelaFileReader.pareseNanoPromelaFile(filename);
 
-    @Override
-    public ProgramGraph<String, String> programGraphFromNanoPromela(InputStream inputStream) throws Exception
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement programGraphFromNanoPromela
-    }
+		ProgramGraph<String, String> pg = pgFromRoot(root);
+
+		return pg;
+
+	}
+
+	@Override
+	public ProgramGraph<String, String> programGraphFromNanoPromelaString(String nanopromela) throws Exception
+	{
+		StmtContext root= NanoPromelaFileReader.pareseNanoPromelaString(nanopromela);
+		
+		ProgramGraph<String, String> pg = pgFromRoot(root);
+
+		return pg;
+	}
+
+	@Override
+	public ProgramGraph<String, String> programGraphFromNanoPromela(InputStream inputStream) throws Exception
+	{
+		StmtContext root= NanoPromelaFileReader.parseNanoPromelaStream(inputStream);
+		ProgramGraph<String, String> pg = pgFromRoot(root);
+
+		return pg;
+	}
+
+	private ProgramGraph<String, String> pgFromRoot(StmtContext root) {
+		
+		ProgramGraph<String, String> pg = createProgramGraph();
+		
+		HashSet<String> loc = new HashSet<String>();
+		loc = sub(root , loc , pg);
+		
+		pg.addAllLocations(loc);
+		pg.addInitialLocation(root.getText());
+		
+		HashSet<String> reachableLocs = reachableOnly(pg);
+		
+		pg.setAllLocations(reachableLocs);
+		
+		removeWasteTrans(pg);
+		
+		return pg;
+
+	}
+
+	private void removeWasteTrans(ProgramGraph<String, String> pg) {
+		Set<PGTransition<String, String>> transitions = pg.getTransitions();
+		Set<String> locations = pg.getLocations();
+		
+		for(PGTransition<String, String> trans : transitions){
+			if(locations.contains(trans.getFrom()) && locations.contains(trans.getTo())){
+				
+			}
+			else{
+				pg.removeTransition(trans);
+			}
+		}
+		
+	}
+
+	private HashSet<String> reachableOnly(ProgramGraph<String, String> pg) {
+		Set<String> initialLocs = pg.getInitialLocations();
+		
+		HashSet<String> toReturn = new HashSet<String>();
+		
+		for(String loc : initialLocs){
+			toReturn.add(loc);
+			toReturn.addAll(reachableOnly(pg, toReturn, loc));
+		}
+		
+		return toReturn;
+	}
+
+	private Set<String> reachableOnly(ProgramGraph<String, String> pg, Set<String> toReturn, String loc) {
+		Set<PGTransition<String, String>> transitions = pg.getTransitions();
+		
+		boolean flag = false;
+		
+		for(PGTransition<String, String> trans : transitions){
+			if(trans.getFrom().equals(loc) ){
+				flag = true;
+				if(!toReturn.contains(trans.getTo())){
+					toReturn.add(trans.getTo());
+					reachableOnly(pg, toReturn, trans.getTo());
+				}
+			}
+		}
+		if(flag == false){
+			return toReturn;
+		}
+		return toReturn;
+	}
+
+	private HashSet<String> sub(StmtContext root, HashSet<String> loc, ProgramGraph<String, String> pg) {
+		
+		if(root.assstmt() != null|| root.chanreadstmt() != null|| root.chanwritestmt() != null||
+				root.atomicstmt() != null||root.skipstmt() != null){
+			loc.add("");
+			loc.add(root.getText());
+			
+			if(root.assstmt() != null || root.chanreadstmt() != null || root.chanwritestmt() != null){
+				PGTransition<String, String> t = new PGTransition<String, String>(root.getText(), "", root.getText(), "");
+				pg.addTransition(t);
+			}
+			else if(root.atomicstmt() != null){
+				
+				PGTransition<String, String> t = new PGTransition<String, String>(root.getText(), "", root.getText(), "");
+				pg.addTransition(t);
+			}
+			else if(root.skipstmt() != null){
+				PGTransition<String, String> t = new PGTransition<String, String>(root.getText(), "", "skip", "");
+				pg.addTransition(t);
+			}
+		}
+		
+		else if(root.ifstmt() != null){
+//			System.out.println(root.);
+			loc.add(root.getText());
+			
+			List<OptionContext> options = root.ifstmt().option();
+			
+			for(OptionContext option  : options){
+				HashSet<String> emptyLoc = new HashSet<String>();
+				loc.addAll(sub(option.stmt() , emptyLoc, pg));				
+			}
+			
+			Set<PGTransition<String, String>> transitions = pg.getTransitions(); //trans so far
+			
+			for(OptionContext option  : options){
+				String fromToCheck = option.stmt().getText();
+				
+				for(PGTransition<String, String> trans : transitions){
+					if (trans.getFrom().equals(fromToCheck)){
+						PGTransition<String, String> t;
+						if(! (trans.getCondition().equals(""))){
+							t = new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  + ") && (" + trans.getCondition() +")" , trans.getAction() , trans.getTo() );
+						}
+						else{
+							t =	new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  +")" , trans.getAction() , trans.getTo() );
+						}
+						pg.addTransition(t);
+					}
+				}
+			}
+			
+		}
+		
+		else if (root.dostmt() != null){
+			loc.add(root.getText());
+			loc.add("");
+			
+			List<OptionContext> options = root.dostmt().option();
+			for(OptionContext option  : options){ //need to check if .stmt() is needed
+				HashSet<String> emptyLoc = new HashSet<String>();
+				HashSet<String> temp =  sub(option.stmt() , emptyLoc, pg);
+				temp.remove("");
+				
+				String loopStmtWithSpaces =  addSpaces(root.getText());
+				for(String str : temp){
+					loc.add(str + ";" + root.getText());
+					
+					String strWithSpaces = addSpaces(str);
+					String s = strWithSpaces + " ; " + loopStmtWithSpaces;
+					StmtContext secondRoot= NanoPromelaFileReader.pareseNanoPromelaString(s);
+					
+					addAdditionalTransactions(secondRoot, pg);
+				}
+			}
+			//first cond
+			String allRules = "(";
+			for(OptionContext option : options){
+				allRules = allRules + option.boolexpr().getText() + ")||("; 
+			}
+			allRules= allRules.substring(0, allRules.length() - 3);
+			PGTransition<String, String> t = new PGTransition<String, String>(root.getText(), "!("+allRules+")", "", "");
+			pg.addTransition(t);
+			
+			//second cond
+			Set<PGTransition<String, String>> transitions = pg.getTransitions();
+			
+			for(OptionContext option  : options){
+				String fromToCheck = option.stmt().getText();
+				
+				for(PGTransition<String, String> trans : transitions){
+					if (trans.getFrom().equals(fromToCheck) && trans.getTo().equals("")){
+						PGTransition<String, String> t2;
+						if(! (trans.getCondition().equals(""))){
+							t2 = new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  + ") && (" + trans.getCondition() +")" , trans.getAction() , root.getText() );
+						}
+						else{
+							t2 = new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  +")" , trans.getAction() , root.getText() );
+						}
+						pg.addTransition(t2);
+					}
+					
+					else if (trans.getFrom().equals(fromToCheck) && !(trans.getTo().equals(""))){
+						PGTransition<String, String> t2;
+						if(! (trans.getCondition().equals(""))){
+							t2 = new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  + ") && (" + trans.getCondition() +")" , trans.getAction() ,trans.getTo()+";"+ root.getText() );
+						}
+						else{
+							t2 =	new PGTransition<String, String>(root.getText(),"(" + option.boolexpr().getText()  +")" , trans.getAction() , trans.getTo()+";"+ root.getText() );
+						}
+						pg.addTransition(t2);
+					}
+				}
+			}
+			
+		}
+		
+		else{ // ;
+			HashSet<String> emptyLoc1 = new HashSet<String>();
+			loc.addAll( sub(root.stmt(1) , emptyLoc1 , pg) );
+			
+			HashSet<String> emptyLoc0 = new HashSet<String>();
+			HashSet<String> temp =  sub(root.stmt(0) , emptyLoc0, pg);
+			temp.remove("");
+			String secondStmtWithSpaces =  addSpaces(root.stmt(1).getText());
+			
+			for(String str : temp){
+							
+				loc.add(str + ";" + root.stmt(1).getText());
+				
+				String strWithSpaces = addSpaces(str);
+				String s = strWithSpaces + " ; " + secondStmtWithSpaces;
+				StmtContext secondRoot= NanoPromelaFileReader.pareseNanoPromelaString(s);
+				
+				addAdditionalTransactions(secondRoot, pg);
+				
+			}
+			
+			Set<PGTransition<String, String>> transitions = pg.getTransitions();
+			
+			for(PGTransition<String, String> trans : transitions){
+				String toCheck = root.stmt(0).getText();
+				if(trans.getFrom().equals(toCheck) && trans.getTo().equals("")){
+					PGTransition<String, String> t = 
+							new PGTransition<String, String>(root.getText(), trans.getCondition(), trans.getAction(), root.stmt(1).getText());
+					pg.addTransition(t);
+				}
+				else if(trans.getFrom().equals(toCheck) && !(trans.getTo().equals(""))){
+					PGTransition<String, String> t = 
+							new PGTransition<String, String>(root.getText(), trans.getCondition(), trans.getAction(), trans.getTo()+";"+root.stmt(1).getText());
+					pg.addTransition(t);
+				}
+			}
+		}
+		
+		return loc;
+	}
+	
+	
+
+	
+		
+	
+
+	private void addAdditionalTransactions(StmtContext secondRoot, ProgramGraph<String, String> pg) {
+		Set<PGTransition<String, String>> transitions = pg.getTransitions();
+		
+		for(PGTransition<String, String> trans : transitions){
+			String toCheck = secondRoot.stmt(0).getText();
+			if(trans.getFrom().equals(toCheck) && trans.getTo().equals("")){
+				PGTransition<String, String> t = 
+						new PGTransition<String, String>(secondRoot.getText(), trans.getCondition(), trans.getAction(), secondRoot.stmt(1).getText());
+				pg.addTransition(t);
+			}
+			else if(trans.getFrom().equals(toCheck) && !(trans.getTo().equals(""))){
+				PGTransition<String, String> t = 
+						new PGTransition<String, String>(secondRoot.getText(), trans.getCondition(), trans.getAction(), trans.getTo()+";"+secondRoot.stmt(1).getText());
+				pg.addTransition(t);
+			}
+		}
+		
+	}
+
+	private String addSpaces(String str) {
+		str = str.replace("fi", " fi");
+		str = str.replace("if", "if ");
+		str = str.replace("od", " od");
+		str = str.replace("do", "do ");
+		str = str.replace("::", ":: ");
+		
+		
+		str = str.replace("->", " -> ");
+		str = str.replace("skip", " skip");
+		str = str.replace("atomic", "atomic ");
+		return str;
+	}
 
 
 }
