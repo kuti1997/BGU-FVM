@@ -1208,12 +1208,21 @@ public class FvmFacadeImpl implements FvmFacade
 		HashSet<String> loc = new HashSet<String>();
 		loc = sub(root , loc , pg);
 		
-		pg.addAllLocations(loc);
+		for(String  locToAdd : loc){
+			pg.addLocation(locToAdd);
+		}
+
 		pg.addInitialLocation(root.getText());
-		
 		HashSet<String> reachableLocs = reachableOnly(pg);
 		
-		pg.setAllLocations(reachableLocs);
+		for(String locToRemove : pg.getLocations()){
+			pg.removeLocation(locToRemove);
+		}
+		
+		for(String  locToAdd : reachableLocs){
+			pg.addLocation(locToAdd);
+		}
+		pg.addInitialLocation(root.getText());
 		
 		removeWasteTrans(pg);
 		

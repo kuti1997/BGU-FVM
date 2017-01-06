@@ -3,6 +3,7 @@ package entities;
 import il.ac.bgu.cs.fvm.programgraph.PGTransition;
 import il.ac.bgu.cs.fvm.programgraph.ProgramGraph;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -95,9 +96,7 @@ public class ProgramGraphImpl<L, A> implements ProgramGraph<L, A>
         this.name = name;
     }
     
-    public void addAllLocations(HashSet<L> loc){
-    	this.locations.addAll(loc);
-    }
+
     
     public void setAllLocations(HashSet<L> reachableLocs){
     	this.locations = reachableLocs;
