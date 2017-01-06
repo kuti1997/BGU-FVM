@@ -1,11 +1,18 @@
 package il.ac.bgu.cs.fvm.programgraph;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 /**
  * A transition in a {@link ProgramGraph}.
  * 
- * @param <L> Type of locations
- * @param <A> Type of label
+ * @param <L>
+ *            Type of locations
+ * @param <A>
+ *            Type of label
  */
-public class PGTransition<L,A> {
+public class PGTransition<L, A> {
 	L from;
 	String condition;
 	A action;
@@ -62,8 +69,19 @@ public class PGTransition<L,A> {
 		if (condition == null) {
 			if (other.condition != null)
 				return false;
-		} else if (!condition.equals(other.condition))
-			return false;
+		} else if (!condition.equals(other.condition)) {
+			ParserBasedCondDef pbc = new ParserBasedCondDef();
+
+			for (int i = 0; i < 1000; i++) {
+				RandomMap eval = new RandomMap();
+				boolean x1 = pbc.evaluate(eval, condition);
+				boolean x2 = pbc.evaluate(eval, other.condition);
+				if (x1 != x2)
+					return false;
+			}
+
+			return true;
+		}
 		if (from == null) {
 			if (other.from != null)
 				return false;
@@ -123,7 +141,8 @@ public class PGTransition<L,A> {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((action == null) ? 0 : action.hashCode());
-		result = prime * result + ((condition == null) ? 0 : condition.hashCode());
+		// result = prime * result + ((condition == null) ? 0 :
+		// condition.hashCode());
 		result = prime * result + ((from == null) ? 0 : from.hashCode());
 		result = prime * result + ((to == null) ? 0 : to.hashCode());
 		return result;
@@ -174,4 +193,19 @@ public class PGTransition<L,A> {
 		return "PGTransition [from=" + from + ", condition=" + condition + ", action =" + action + ", to=" + to + "]";
 	}
 
+}
+
+@SuppressWarnings("serial")
+class RandomMap extends HashMap<String, Object> implements Map<String, Object> {
+
+	public Object get(Object key) {
+		Object val = super.get(key);
+
+		if (val == null) {
+			val = new Random().nextInt(20) - 10;
+			put((String) key, val);
+		}
+
+		return val;
+	}
 }

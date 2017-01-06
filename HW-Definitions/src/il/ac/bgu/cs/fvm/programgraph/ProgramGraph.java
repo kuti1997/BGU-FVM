@@ -1,6 +1,5 @@
 package il.ac.bgu.cs.fvm.programgraph;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -91,8 +90,4 @@ public interface ProgramGraph<L, A> {
      * @param name The new name.
      */
     void setName(String name);
-
-	void addAllLocations(HashSet<L> loc);
-
-	void setAllLocations(HashSet<L> reachableLocs);
 }

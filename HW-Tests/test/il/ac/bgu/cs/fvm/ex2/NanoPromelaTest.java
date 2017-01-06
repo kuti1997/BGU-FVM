@@ -19,14 +19,13 @@ import il.ac.bgu.cs.fvm.FvmFacade;
 import il.ac.bgu.cs.fvm.examples.VendingmachineInNanopromela;
 import il.ac.bgu.cs.fvm.programgraph.ActionDef;
 import il.ac.bgu.cs.fvm.programgraph.ConditionDef;
-import il.ac.bgu.cs.fvm.programgraph.PGTransition;
 import il.ac.bgu.cs.fvm.programgraph.ParserBasedActDef;
 import il.ac.bgu.cs.fvm.programgraph.ParserBasedCondDef;
 import il.ac.bgu.cs.fvm.programgraph.ProgramGraph;
 import il.ac.bgu.cs.fvm.transitionsystem.TransitionSystem;
 import il.ac.bgu.cs.fvm.util.Pair;
-import il.ac.bgu.cs.fvm.util.codeprinter.TsPrinter;
 
+@SuppressWarnings("deprecation")
 public class NanoPromelaTest {
 
 	FvmFacade fvmFacadeImpl;
@@ -876,7 +875,7 @@ public class NanoPromelaTest {
 
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	@Test
 	public void test10() throws Exception {
 		InputStream in = new StringBufferInputStream("x:=4;\n" + 
@@ -896,7 +895,7 @@ public class NanoPromelaTest {
 		assertEquals(set(
 				pgtransition("if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi", "(x>3) && ((x<5))", "x:=x+3",
 						"do::x<5->x:=x+3::x>6->x:=x-4od"),
-				pgtransition("do::x<5->x:=x+3::x>6->x:=x-4od", "!((x<5)||(x>6))", "", ""),
+				pgtransition("do::x<5->x:=x+3::x>6->x:=x-4od", "x>=5 && x<=6", "", ""),
 				pgtransition("do::x<5->x:=x+3::x>6->x:=x-4od", "(x<5)", "x:=x+3", "do::x<5->x:=x+3::x>6->x:=x-4od"),
 				pgtransition("x:=4;if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi", "", "x:=4",
 						"if::x>3->do::x<5->x:=x+3::x>6->x:=x-4odfi"),
