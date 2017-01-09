@@ -536,69 +536,114 @@ public class FvmFacadeImpl implements FvmFacade
     @Override
     public <S1, S2, A, P> TransitionSystem<Pair<S1, S2>, A, P> interleave(TransitionSystem<S1, A, P> ts1, TransitionSystem<S2, A, P> ts2, Set<A> handShakingActions)
     {
-        TransitionSystem<Pair<S1, S2>, A, P> ret = interleaveWithoutTransitions(ts1, ts2);
+        //TransitionSystem<Pair<S1, S2>, A, P> ret = interleaveWithoutTransitions(ts1, ts2);
+        TransitionSystem<Pair<S1, S2>, A, P> ret = createTransitionSystem();
+
+
+        Set<S1> i1 = ts1.getInitialStates();
+        Set<S2> i2 = ts2.getInitialStates();
+        Queue<Pair<S1,S2>> reach = new LinkedList();
+        //insert initial states
+
+        for(S1 initial1 : i1)
+        {
+            for(S2 initial2 : i2)
+            {
+                Pair<S1,S2> initial_state = new Pair(initial1,initial2);
+                ret.addState(initial_state);
+                ret.addInitialState(initial_state);
+                reach.add(initial_state);
+            }
+        }
+
         Set<Transition<S1, A>> t1 = ts1.getTransitions();
         Set<Transition<S2, A>> t2 = ts2.getTransitions();
+
+        while (!reach.isEmpty())
+        {
+            Pair<S1,S2> from = reach.poll();
+            for (Transition<S1, A> trans1 : t1)
+            {
+                if(trans1.getFrom().equals(from.getFirst()))
+                {
+                    Pair<S1, S2> to = null;
+                    Transition<Pair<S1,S2>,A> transition = null;
+                    A action = action = trans1.getAction();;
+                    if (handShakingActions.contains(trans1.getAction()))
+                    {
+                        for (Transition<S2, A> trans2 : t2)
+                        {
+                            if (trans2.getAction().equals(trans1.getAction()) && trans2.getFrom().equals(from.getSecond()))
+                            {
+                                to = new Pair(trans1.getTo(),trans2.getTo());
+                                transition = new Transition(from, trans2.getAction(), to);
+                                if (!ret.getStates().contains(to))
+                                {
+                                    reach.add(to);
+                                    ret.addState(to);
+                                }
+                                ret.addAction(action);
+                                ret.addTransition(transition);
+                            }
+                        }
+                    } else
+                    {
+                        to = new Pair(trans1.getTo(), from.second);
+                        transition = new Transition<Pair<S1, S2>, A>(from, trans1.getAction(), to);
+                        if (!ret.getStates().contains(to))
+                        {
+                            reach.add(to);
+                            ret.addState(to);
+                        }
+                        ret.addAction(action);
+                        ret.addTransition(transition);
+                    }
+                }
+            }
+            for (Transition<S2, A> trans2 : t2)
+            {
+                if(trans2.getFrom().equals(from.getSecond()))
+                {
+                    Pair<S1, S2> to = null;
+                    Transition<Pair<S1,S2>,A> transition = null;
+                    A action = trans2.getAction();
+                    if (!handShakingActions.contains(trans2.getAction()))
+                    {
+                        to = new Pair(from.first, trans2.getTo());
+                        transition = new Transition<Pair<S1, S2>, A>(from, trans2.getAction(), to);
+                    }
+                    if(to != null)
+                    {
+                        if (!ret.getStates().contains(to))
+                        {
+                            reach.add(to);
+                            ret.addState(to);
+                        }
+                        ret.addAction(action);
+                        ret.addTransition(transition);
+                    }
+                }
+            }
+        }
+
+        //insert labels
         Set<Pair<S1, S2>> states = ret.getStates();
-
-        //insert transitions
-
-        //insert hadshaking
-        for (Transition<S1, A> trans1 : t1)
+        for (Pair<S1, S2> state : states)
         {
-            A action = trans1.getAction();
-            if (handShakingActions.contains(action))
+            Set<P> s1_labels = ts1.getLabel(state.first);
+            Set<P> s2_labels = ts2.getLabel(state.second);
+            for (P label : s1_labels)
             {
-                for (Transition<S2, A> trans2 : t2)
-                {
-                    if (trans2.getAction().equals(action))
-                    {
-                        Pair<S1, S2> from = findStartState(states, trans1, trans2);
-                        Pair<S1, S2> to = findNextState(states, trans1, trans2);
-                        Transition<Pair<S1, S2>, A> transition = new Transition(from, action, to);
-                        ret.addTransition(transition);
-                    }
-                }
+                ret.addAtomicProposition(label);
+                ret.addToLabel(state, label);
+            }
+            for (P label : s2_labels)
+            {
+                ret.addAtomicProposition(label);
+                ret.addToLabel(state, label);
             }
         }
 
-        //insert only ts1
-        for (Transition<S1, A> trans1 : t1)
-        {
-            if (!handShakingActions.contains(trans1.getAction()))
-            {
-                for (Pair<S1, S2> state : states)
-                {
-                    if (trans1.getFrom().equals(state.first))
-                    {
-                        Pair<S1, S2> next = getNextStateS1(states, trans1, state);
-                        if (next == null)
-                            System.out.println("Should not happen. Error");
-                        Transition transition = new Transition(state, trans1.getAction(), next);
-                        ret.addTransition(transition);
-                    }
-                }
-            }
-        }
-
-        //insert only ts2
-        for (Transition<S2, A> trans2 : t2)
-        {
-            if (!handShakingActions.contains(trans2.getAction()))
-            {
-                for (Pair<S1, S2> state : states)
-                {
-                    if (trans2.getFrom().equals(state.second))
-                    {
-                        Pair<S1, S2> next = getNextStateS2(states, trans2, state);
-                        if (next == null)
-                            System.out.println("Should not happen. Error");
-                        Transition transition = new Transition(state, trans2.getAction(), next);
-                        ret.addTransition(transition);
-                    }
-                }
-            }
-        }
 
 
         return ret;
