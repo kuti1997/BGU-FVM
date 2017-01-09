@@ -904,6 +904,21 @@ public class FvmFacadeImpl implements FvmFacade
         }
     }
 
+    private <L, A> void labelComplexState(TransitionSystem<Pair<List<L>, Map<String, Object>>, A, String> ts, Pair<List<L>, Map<String, Object>> state)
+    {
+        for(L location : state.first)
+        {
+            ts.addAtomicProposition(location.toString());
+            ts.addToLabel(state, location.toString());
+        }
+        for (Map.Entry<String, Object> entry : state.second.entrySet())
+        {
+            String ap = entry.getKey().toString() + " = " + entry.getValue().toString();
+            ts.addAtomicProposition(ap);
+            ts.addToLabel(state, ap);
+        }
+    }
+
     @Override
     public <L, A> TransitionSystem<Pair<L, Map<String, Object>>, A, String> transitionSystemFromProgramGraph(ProgramGraph<L, A> pg, Set<ActionDef> actionDefs, Set<ConditionDef> conditionDefs)
     {
@@ -1003,11 +1018,18 @@ public class FvmFacadeImpl implements FvmFacade
         List<List<E>> permutations = generatePerm(original);
         for (List<E> smallerPermutated : permutations)
         {
-            for (E element : firstElement)
+            if(firstElement.size() == 0)
             {
-                List<E> temp = new ArrayList<E>(smallerPermutated);
-                temp.add(0, element);
-                returnValue.add(temp);
+                returnValue.add(smallerPermutated);
+            }
+            else
+            {
+                for (E element : firstElement)
+                {
+                    List<E> temp = new ArrayList<E>(smallerPermutated);
+                    temp.add(0, element);
+                    returnValue.add(temp);
+                }
             }
         }
         return returnValue;
@@ -1073,7 +1095,7 @@ public class FvmFacadeImpl implements FvmFacade
             ret.addInitialState(state);
             reach.add(state);
 
-            labelState(ret, state);
+            labelComplexState(ret, state);
 
         }
 
@@ -1172,7 +1194,7 @@ public class FvmFacadeImpl implements FvmFacade
             }
             ret.addAction(action);
             ret.addTransition(transition);
-            labelState(ret, state);
+            labelComplexState(ret, newState);
         }
     }
 

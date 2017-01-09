@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d46fd2a-6a6a-446f-86e0-5d67db075d1e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/PGTransition.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/PGTransition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ProgramGraph.java" afterPath="$PROJECT_DIR$/HW-Definitions/src/il/ac/bgu/cs/fvm/programgraph/ProgramGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java" afterPath="$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/NanoPromelaTest.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/NanoPromelaTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/TransitionSystemsProductTests.java" afterPath="$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/TransitionSystemsProductTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/HW-Definitions/bin/" />
@@ -25,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BGU-FVM$All_in_HW_Tests.coverage" NAME="All in HW-Tests Coverage Results" MODIFIED="1483965641348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/BGU-FVM$All_in_HW_Tests.coverage" NAME="All in HW-Tests Coverage Results" MODIFIED="1483967599022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -39,20 +34,21 @@
       <file leaf-file-name="FvmFacadeImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1187">
-              <caret line="600" column="17" selection-start-line="600" selection-start-column="17" selection-end-line="600" selection-end-column="17" />
+            <state relative-caret-position="387">
+              <caret line="1097" column="30" selection-start-line="1097" selection-start-column="30" selection-end-line="1097" selection-end-column="30" />
               <folding>
                 <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
+                <element signature="e#33296#33305#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransitionSystemsProductTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/TransitionSystemsProductTests.java">
+      <file leaf-file-name="ChannelSystemTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+            <state relative-caret-position="76">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -520,34 +516,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 46m 15s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 13m 16s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 47m 13s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 15m 53s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 47m 43s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 18m 00s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 48m 19s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 18m 11s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 49m 00s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 28m 22s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 55m 49s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 32m 33s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 14h 59m 58s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 32m 55s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 02m 48s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 37m 17s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 05m 22s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 38m 44s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 06m 26s.xml">
+    <history-entry file="All_in_HW-Tests - 2017.01.09 at 15h 39m 21s.xml">
       <configuration name="All in HW-Tests" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -555,7 +551,7 @@
     <option name="totallyTimeSpent" value="61283000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -563,7 +559,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7453954" sideWeight="0.5079957" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53846157" sideWeight="0.51134646" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7430442" sideWeight="0.49200428" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -575,7 +571,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58919805" sideWeight="0.4969697" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53846157" sideWeight="0.48865354" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -608,19 +604,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/TransitionSystemsProductTests.java</url>
-          <line>176</line>
+          <url>file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java</url>
+          <line>1122</line>
           <properties />
-          <option name="timeStamp" value="52" />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java</url>
+          <line>910</line>
+          <properties />
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="63" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="initial_state" />
         <watch expression="((TransitionSystemImpl)ts12)._states" custom="entities.TransitionSystemImpl" />
         <watch expression="((TransitionSystemImpl)ts1)._transitions" custom="entities.TransitionSystemImpl" />
+        <watch expression="initializations.get(0)" />
       </configuration>
     </watches-manager>
   </component>
@@ -906,13 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/NanoPromelaTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15028">
@@ -956,18 +952,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/TransitionSystemsProductTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
+        <state relative-caret-position="320">
           <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW-Tests/test/il/ac/bgu/cs/fvm/ex2/ChannelSystemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HW-Implementation/src/il/ac/bgu/cs/fvm/impl/FvmFacadeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1187">
-          <caret line="600" column="17" selection-start-line="600" selection-start-column="17" selection-end-line="600" selection-end-column="17" />
+        <state relative-caret-position="387">
+          <caret line="1097" column="30" selection-start-line="1097" selection-start-column="30" selection-end-line="1097" selection-end-column="30" />
           <folding>
             <element signature="method#interleave#2;class#FvmFacadeImpl#0" expanded="false" />
+            <element signature="e#33296#33305#0" expanded="true" />
           </folding>
         </state>
       </provider>
