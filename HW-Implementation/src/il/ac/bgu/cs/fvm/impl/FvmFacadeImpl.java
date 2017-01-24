@@ -8,6 +8,7 @@ import il.ac.bgu.cs.fvm.channelsystem.ChannelSystem;
 import il.ac.bgu.cs.fvm.channelsystem.InterleavingActDef;
 import il.ac.bgu.cs.fvm.channelsystem.ParserBasedInterleavingActDef;
 import il.ac.bgu.cs.fvm.circuits.Circuit;
+import il.ac.bgu.cs.fvm.examples.BookingSystemBuilder;
 import il.ac.bgu.cs.fvm.exceptions.ActionNotFoundException;
 import il.ac.bgu.cs.fvm.exceptions.StateNotFoundException;
 import il.ac.bgu.cs.fvm.nanopromela.NanoPromelaFileReader;
@@ -18,7 +19,10 @@ import il.ac.bgu.cs.fvm.transitionsystem.AlternatingSequence;
 import il.ac.bgu.cs.fvm.transitionsystem.Transition;
 import il.ac.bgu.cs.fvm.transitionsystem.TransitionSystem;
 import il.ac.bgu.cs.fvm.util.Pair;
+import il.ac.bgu.cs.fvm.verification.VeficationSucceeded;
+import il.ac.bgu.cs.fvm.verification.VerificationFailed;
 import il.ac.bgu.cs.fvm.verification.VerificationResult;
+import il.ac.bgu.cs.fvm.verification.VerificationSucceeded;
 
 import java.io.InputStream;
 import java.util.*;
@@ -1052,13 +1056,14 @@ public class FvmFacadeImpl implements FvmFacade
             for (Saut auto_initial : auto_inital_states)
             {
                 Set<Saut> next_aut_states = aut.nextStates(auto_initial, state_atomic_prop);
+                ret.addAllAtomicPropositions(next_aut_states);
                 for (Saut next_state : next_aut_states)
                 {
                     Pair<Sts, Saut> initial_state = new Pair(ts_initial, next_state);
                     ret.addState(initial_state);
                     ret.addInitialState(initial_state);
                     reach.add(initial_state);
-                    //TODO:: add atomic prop
+                    ret.addToLabel(initial_state, initial_state.second);
                 }
             }
         }
@@ -1070,18 +1075,21 @@ public class FvmFacadeImpl implements FvmFacade
             {
                 Set<P> state_atomic_prop = ts.getLabel(transition.getTo());
                 Set<Saut> next_aut_states = aut.nextStates(head.getSecond(), state_atomic_prop);
-                ret.addAllAtomicPropositions(next_aut_states); // add all atomic prop
-                for (Saut state : next_aut_states)
+                if(next_aut_states!=null)
                 {
-                    Pair<Sts, Saut> next_state = new Pair<Sts, Saut>(transition.getTo(), state);
-                    if (!ret.getStates().contains(next_state))
+                    ret.addAllAtomicPropositions(next_aut_states); // add all atomic prop
+                    for (Saut state : next_aut_states)
                     {
-                        ret.addState(next_state);
-                        reach.add(next_state);
+                        Pair<Sts, Saut> next_state = new Pair<Sts, Saut>(transition.getTo(), state);
+                        if (!ret.getStates().contains(next_state))
+                        {
+                            ret.addState(next_state);
+                            reach.add(next_state);
+                        }
+                        ret.addToLabel(next_state, next_state.second); // add labels to state
+                        ret.addAction(transition.getAction());
+                        ret.addTransition(new Transition<Pair<Sts, Saut>, A>(head, transition.getAction(), next_state));
                     }
-                    ret.addToLabel(next_state, next_state.second); // add labels to state
-                    ret.addAction(transition.getAction());
-                    ret.addTransition(new Transition<Pair<Sts, Saut>, A>(head, transition.getAction(), next_state));
                 }
             }
         }
@@ -1323,10 +1331,145 @@ public class FvmFacadeImpl implements FvmFacade
         return pg;
     }
 
+
     @Override
     public <S, A, P, Saut> VerificationResult<S> verifyAnOmegaRegularProperty(TransitionSystem<S, A, P> ts, Automaton<Saut, P> aut)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // TODO: Implement product
+        Queue<Pair<S, Saut>> to_iterate = new LinkedList();
+        Set<Pair<S, Saut>> R = new HashSet();
+        Stack<Pair<S,Saut>> U = new Stack<>();
+        Stack<Pair<S,Saut>> V = new Stack();
+        Set<Pair<S, Saut>> T = new HashSet();
+        Boolean flag = new Boolean(false);
+
+
+        TransitionSystem<Pair<S, Saut>, A, Saut> product = product(ts, aut);
+        to_iterate.addAll(product.getInitialStates());
+
+        while (to_iterate.size() > 0 && !flag)
+        {
+            Pair<S, Saut> state = to_iterate.poll();
+            if (!R.contains(state))
+                flag = reachable_cycle(state,R,U,V,T,product,aut);
+        }
+
+        if(flag)
+        {
+            VerificationFailed result = new VerificationFailed();
+            List<Pair<S,Saut>> l = new ArrayList();
+            l.addAll(U);
+            l.addAll(V);
+
+            Pair<S,Saut> dup = l.get(l.size()-1);
+            int first_appear = l.indexOf(dup);
+            List<Pair<S,Saut>> unclear_prefix = l.subList(0,first_appear);
+            List<Pair<S,Saut>> unclear_circle = l.subList(first_appear,l.size()-1);
+            List prefix = new ArrayList();
+            List circle = new ArrayList();
+            for(Pair<S,Saut> state : unclear_prefix)
+            {
+                prefix.add(state.first);
+            }
+            for(Pair<S,Saut> state : unclear_circle)
+            {
+                circle.add(state.first);
+            }
+            result.setCycle(circle);
+            result.setPrefix(prefix);
+            return result;
+        }
+        else
+            return new VerificationSucceeded<S>();
+
+    }
+
+    private <S, Saut> boolean reachable_cycle(Pair<S, Saut> state, Set<Pair<S, Saut>> r, Stack<Pair<S, Saut>> u, Stack<Pair<S, Saut>> v, Set<Pair<S, Saut>> t, TransitionSystem<Pair<S, Saut>, ?, Saut> product, Automaton<Saut, ?> aut)
+    {
+        boolean flag = false;
+        u.push(state);
+        r.add(state);
+        Set<Saut> accpent_aut_states= aut.getAcceptingStates();
+        while(u.size() > 0 && !flag)
+        {
+            Pair<S, Saut> s_tag = u.peek();
+            Set<Pair<S,Saut>> post_s_tag = post(product,s_tag);
+            post_s_tag.removeAll(r);
+            if(post_s_tag.size() > 0)
+            {
+                Pair<S, Saut> s_tag_tag = (Pair<S, Saut>) post_s_tag.toArray()[0];
+                u.push(s_tag_tag);
+                r.add(s_tag_tag);
+            }
+            else
+            {
+                u.pop();
+                if(accpent_aut_states.contains(s_tag.second))
+                {
+                    flag = cycle_check(s_tag,product,v,t);
+                }
+            }
+        }
+        return flag;
+    }
+
+
+    private <S, Saut> boolean cycle_check(Pair<S, Saut> state, TransitionSystem<Pair<S, Saut>, ?, ?> ts, Stack<Pair<S,Saut>> V,Set<Pair<S,Saut>> T)
+    {
+        boolean cycle_found = false;
+        T.add(state);
+        V.add(state);
+        while(V.size() > 0)
+        {
+            Pair<S,Saut> s_tag = V.peek();
+            Set<Pair<S,Saut>> post_s_tag = post(ts,s_tag);
+            if(post_s_tag.contains(state))
+            {
+                cycle_found = true;
+                break;
+            }
+            else
+            {
+                post_s_tag.removeAll(T);
+                if(!post_s_tag.isEmpty())
+                {
+                    Pair<S, Saut> s_tag_tag = (Pair<S, Saut>) post_s_tag.toArray()[0];
+                    V.push(s_tag_tag);
+                    T.add(s_tag_tag);
+                }
+                else
+                {
+                    V.pop();
+                }
+            }
+        }
+        return  cycle_found;
+    }
+
+
+    private <S, A, P, Saut> void visit(Pair<S, Saut> state, Set<Pair<S, Saut>> accept_states, Set<Pair<S, Saut>> reach, TransitionSystem<Pair<S, Saut>, A, Saut> ts,Automaton<Saut, P> aut)
+    {
+        Stack<Pair<S, Saut>> U = new Stack();
+        Set<Saut> aut_accept_states= aut.getAcceptingStates();
+        U.push(state);
+        reach.add(state);
+        while(U.size()>0)
+        {
+            Pair<S, Saut> s_tag = U.peek();
+            Set<Pair<S, Saut>> post_s_tag = post(ts,s_tag);
+            if(reach.containsAll(post_s_tag))
+            {
+                U.pop();
+                if(aut_accept_states.contains(s_tag.second))
+                    accept_states.add(s_tag);
+            }
+            else
+            {
+                post_s_tag.removeAll(reach);
+                Pair<S, Saut> s_tag_tag = (Pair<S, Saut>) post_s_tag.toArray()[0];
+                U.push(s_tag_tag);
+                reach.add(s_tag_tag);
+            }
+        }
     }
 
     private ProgramGraph<String, String> pgFromRoot(StmtContext root)
