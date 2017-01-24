@@ -30,6 +30,7 @@ public class PetersonProgramGraphBuilder {
         pg.addInitialLocation(noncrit);
 
         pg.addTransition(new PGTransition<>(noncrit, "true", "atomic{b" + id + ":=1;x:=" + (id == 1 ? 2 : 1) + "}", wait));
+
         pg.addTransition(new PGTransition<>(wait, "x==" + id + " || b" + (id == 1 ? 2 : 1) + "==0", "", crit));
         pg.addTransition(new PGTransition<>(crit, "true", "b" + id + ":=0", noncrit));
 

@@ -18,7 +18,7 @@ import il.ac.bgu.cs.fvm.automata.Automaton;
 
 public class AutomatonTest {
     
-    enum State{
+    public enum State{
         A,B,C,D,E,F,G,H
     }
     

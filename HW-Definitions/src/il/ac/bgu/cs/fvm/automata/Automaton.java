@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * An none-deterministic automaton, composed of states and transitions.
+ * An non-deterministic automaton, composed of states and transitions.
  * @param <STATE> Type of states.
  * @param <L> Type of transitions/alphabet the automaton understands.
  */
@@ -49,7 +49,7 @@ public class Automaton<STATE, L> {
      * @param symbol
      * @return Iterable of the states immediately reachable from {@code source}, given {@code symbol}.
      */
-	public Iterable<STATE> nextStates(STATE source, Set<L> symbol) {
+	public Set<STATE> nextStates(STATE source, Set<L> symbol) {
 		if (!transitions.containsKey(source)) {
 			throw new IllegalArgumentException("State " + source +" not in automaton.");
         } else {
@@ -71,7 +71,7 @@ public class Automaton<STATE, L> {
 		accepting.add(s);
 	}
 
-	public Iterable<STATE> getAcceptingStates() {
+	public Set<STATE> getAcceptingStates() {
 		return accepting;
 	}
 

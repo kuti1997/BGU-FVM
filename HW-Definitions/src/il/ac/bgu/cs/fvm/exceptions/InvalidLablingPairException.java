@@ -7,7 +7,7 @@ public class InvalidLablingPairException extends FVMException {
 	Object p;
 
 	public InvalidLablingPairException(Object s, Object p) {
-		super("An attempt to add a label with an invalid proposition (" + s + "," + p + ")");
+		super("An attempt to add a label to an invalid state or with an invalid proposition (" + s + "," + p + ")");
 
 		this.s = s;
 		this.p = p;

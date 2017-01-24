@@ -18,9 +18,7 @@ import il.ac.bgu.cs.fvm.examples.BookingSystemBuilder.State;
 import il.ac.bgu.cs.fvm.transitionsystem.Transition;
 import il.ac.bgu.cs.fvm.transitionsystem.TransitionSystem;
 import il.ac.bgu.cs.fvm.util.Pair;
-import il.ac.bgu.cs.fvm.util.codeprinter.TsPrinter;
 
-@SuppressWarnings("unused")
 public class TransitionSystemsProductTests {
 
 	FvmFacade fvmFacadeImpl = FvmFacade.createInstance();
